@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>app</groupId>
+	<artifactId>app-pom</artifactId>
+	<version>1.0.0</version>
+	<packaging>pom</packaging>
+
+	<properties>
+		<spring.boot.version>2.5.14</spring.boot.version>
+		<gapwalk.version>3.1.390</gapwalk.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<modules>
+		<module>app-tools</module>
+		<module>app-entities</module>
+		<module>app-service</module>
+		<module>app-web</module>
+	</modules>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>com.netfective.bluage</groupId>
+				<artifactId>gapwalk.runtime.legacy.statements</artifactId>
+				<version>${gapwalk.version}</version>
+				<scope>provided</scope>				
+			</dependency>
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-api</artifactId>
+				<version>1.7.25</version>
+				<scope>provided</scope>				
+			</dependency>
+			<dependency>
+				<groupId>com.netfective.bluage</groupId>
+				<artifactId>gapwalk-Jics</artifactId>
+				<version>${gapwalk.version}</version>
+				<scope>provided</scope>				
+			</dependency>
+			<dependency>
+				<groupId>com.netfective.bluage</groupId>
+				<artifactId>gapwalk-datasimplifier-io-bluesam</artifactId>
+				<version>${gapwalk.version}</version>
+				<scope>provided</scope>				
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-web</artifactId>
+				<version>${spring.boot.version}</version>
+				<scope>provided</scope>				
+				<exclusions>
+					<exclusion>
+						<groupId>org.apache.logging.log4j</groupId>
+						<artifactId>log4j-to-slf4j</artifactId>
+					</exclusion>
+				</exclusions> 
+			</dependency>
+			<dependency>
+				<groupId>com.netfective.bluage</groupId>
+				<artifactId>gapwalk-runtime-database-support</artifactId>
+				<version>${gapwalk.version}</version>
+				<scope>provided</scope>				
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-jdbc</artifactId>
+				<version>${spring.boot.version}</version>
+				<scope>provided</scope>				
+			</dependency>
+			<dependency>
+				<groupId>org.postgresql</groupId>
+				<artifactId>postgresql</artifactId>
+				<version>42.4.2</version>
+			</dependency>
+			<dependency>
+				<groupId>com.netfective.bluage</groupId>
+				<artifactId>gapwalk.datasimplifier-io</artifactId>
+				<version>${gapwalk.version}</version>
+				<scope>provided</scope>				
+			</dependency>
+			<dependency>
+				<groupId>org.yaml</groupId>
+				<artifactId>snakeyaml</artifactId>
+				<version>1.28</version>
+				<scope>provided</scope>				
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+
+</project>
